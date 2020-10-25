@@ -189,6 +189,14 @@ public static ArrayList<String> getCountryConfirmCase(String type, String countr
         return data;
     }
 ```
+## In LineChartController.java
+Delete never-used method
+```
+public void setAlert(String alertText) {
+        alert.setText(alertText);
+    }
+```
+
 ## For others
 For other classes and methods, The code is quite clear and do its own work well.  
 Especially in controller classes that each method do thier own work well.

@@ -240,13 +240,4 @@ public class LineChartController implements Initializable {
         window.setResizable(false);
         window.show();
     }
-
-    /**
-     * Method for set a Text for display alert massage.
-     *
-     * @param alertText Text for display alert massage.
-     */
-    public void setAlert(String alertText) {
-        alert.setText(alertText);
-    }
 }

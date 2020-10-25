@@ -16,10 +16,15 @@ public class Main extends Application {
      * Method to initialize scene and stage.
      */
     public void start(Stage primaryStage) throws Exception {
+        //set root and load the menu fxml file when application started.
         Parent root = FXMLLoader.load(getClass().getResource("fxml/Menu.fxml"));
+        //set stage's title.
         primaryStage.setTitle("Covid19 Tracker");
+        //set stage's screen to the root.
         primaryStage.setScene(new Scene(root));
+        //fix stage size.
         primaryStage.setResizable(false);
+        //show the application.
         primaryStage.show();
     }
 

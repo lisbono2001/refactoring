@@ -47,7 +47,8 @@
             <Font name="Arial Black" size="66.0" />
          </font>
       </Text>
-      <Button fx:id="button1" layoutX="129.0" layoutY="487.0" mnemonicParsing="false" onAction="#button1Handler" prefHeight="47.0" prefWidth="311.0" style="-fx-background-color: #ffd24d;" text="World Summary" textAlignment="CENTER">
+      <Button fx:id="worldsummary" layoutX="129.0" layoutY="487.0" mnemonicParsing="false" onAction="worldSummaryNavigator"
+              prefHeight="47.0" prefWidth="311.0" style="-fx-background-color: #ffd24d;" text="World Summary" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
@@ -55,7 +56,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="button2" layoutX="129.0" layoutY="563.0" mnemonicParsing="false" onAction="#button2Handler" prefHeight="47.0" prefWidth="311.0" style="-fx-background-color: #ffd24d;" text="Charts" textAlignment="CENTER">
+      <Button fx:id="barchart" layoutX="129.0" layoutY="563.0" mnemonicParsing="false" onAction="barChartNavigator"
+              prefHeight="47.0" prefWidth="311.0" style="-fx-background-color: #ffd24d;" text="Charts" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="28.0" />
          </font>

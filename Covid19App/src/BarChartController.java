@@ -31,7 +31,7 @@ public class BarChartController implements Initializable {
     private Button mainMenu;
 
     @FXML
-    private ComboBox<String> cb1;
+    private ComboBox<String> comboBox1;
 
     @FXML
     private BarChart<String, Number> barChart;
@@ -43,19 +43,19 @@ public class BarChartController implements Initializable {
     private NumberAxis yAxis;
 
     @FXML
-    private ComboBox<String> cb2;
+    private ComboBox<String> comboBox2;
 
     @FXML
     private ComboBox<String> showType;
 
     @FXML
-    private Label lb1;
+    private Label label1;
 
     @FXML
     private ComboBox<String> view;
 
     @FXML
-    private Label lb2;
+    private Label label2;
 
     @FXML
     private Label alert;
@@ -70,7 +70,7 @@ public class BarChartController implements Initializable {
 
     String countryName = "World";
     String graphType = "Total confirmed cases";
-    String casee;
+    String cases;
 
     GraphData gd = new GraphData(); //Create Graphdata Object for get data.
     XYChart.Series series = new XYChart.Series();
@@ -91,7 +91,7 @@ public class BarChartController implements Initializable {
         }
 
         mainMenu.setText("Main Menu");
-        lb2.setText("last update: " + datee.get(datee.size() - 1));
+        label2.setText("last update: " + datee.get(datee.size() - 1));
         casee = confirmCase.get(confirmCase.size() - 1);
 
         //add all component to all ComboBox;
@@ -100,16 +100,17 @@ public class BarChartController implements Initializable {
         ObservableList<String> ob3 = FXCollections.observableArrayList(typesOfView);
         ObservableList<String> ob4 = FXCollections.observableArrayList(typesOfChart);
 
-        cb1.getItems().addAll(ob1);
-        cb2.getItems().addAll(ob2);
+        comboBox1.getItems().addAll(ob1);
+        comboBox.getItems().addAll(ob2);
+
         showType.getItems().addAll(ob3);
         view.getItems().addAll(ob4);
 
         //set all data for Chart
         showType.setValue(graphType);
         series.setName("Covid19 confirm cases");
-        lb1.setText(String.format("%s : %,d cases", graphType, Integer.parseInt(casee)));
-        cb2.setValue(datee.get(datee.size() - 1));
+        label1.setText(String.format("%s : %,d cases", graphType, Integer.parseInt(casee)));
+        comboBox.setValue(datee.get(datee.size() - 1));
 
         xAxis.setLabel("Year-Month-Date");
         yAxis.setLabel("Total confirmed cases");
@@ -146,33 +147,33 @@ public class BarChartController implements Initializable {
          }
      });
 
-        cb1.setOnAction(new EventHandler<ActionEvent>() {
+        comboBox1.setOnAction(new EventHandler<ActionEvent>() {
             /**
              * The anonymous class for set any component on window
              * and the data of chart.
-             * @param actionEvent action of cb1 ComboBox.
+             * @param actionEvent action of comboBox1 ComboBox.
              */
             @Override
             public void handle(ActionEvent actionEvent) {
                 alert.setText("");
                 series.getData().clear();
-                countryName = cb1.getValue();
+                countryName = comboBox1.getValue();
                 setAll();
             }
         });
 
-        cb2.setOnAction(new EventHandler<ActionEvent>() {
+        comboBox.setOnAction(new EventHandler<ActionEvent>() {
             /**
              * The anonymous class for set a value of inflected case
-             * @param actionEvent action of cb2 ComboBox.
+             * @param actionEvent action of comboBox2 ComboBox.
              */
             @Override
             public void handle(ActionEvent actionEvent) {
                 for (int i = 0; i < confirmCase.size(); i++) {
-                    if (cb2.getValue() == datee.get(i)) {
+                    if (comboBox.getValue() == datee.get(i)) {
                         casee = confirmCase.get(i);
                     }
-                    lb1.setText(String.format("%s : %,d cases", graphType, Integer.parseInt(casee)));
+                    label1.setText(String.format("%s : %,d cases", graphType, Integer.parseInt(casee)));
                 }
             }
         });
@@ -189,7 +190,7 @@ public class BarChartController implements Initializable {
             confirmCase = gd.getCountryConfirmCase(graphType, countryName);
             showType.setValue(graphType);
 
-            cb2.setValue(datee.get(datee.size() - 1));
+            comboBox.setValue(datee.get(datee.size() - 1));
             casee = confirmCase.get(confirmCase.size() - 1);
 
             for (int i = 1; i < datee.size(); i++) {
@@ -199,7 +200,7 @@ public class BarChartController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        lb1.setText(String.format("%s : %,d cases", graphType, Integer.parseInt(casee)));
+        label1.setText(String.format("%s : %,d cases", graphType, Integer.parseInt(casee)));
 
     }
 

@@ -13,16 +13,16 @@ import java.io.IOException;
 /**
  * The controller class for Menu.fxml.
  *
- * @author Bhatara CHaemchan SKE17
+ * @author Bhatara Chaemchan SKE17
  */
 public class MenuController {
 
     //initialize FXML attributes.
     @FXML
-    private Button button1;
+    private Button worldsummary;
 
     @FXML
-    private Button button2;
+    private Button barchart;
 
     /**
      * Method for switching to WorldSummary scene.
@@ -30,14 +30,13 @@ public class MenuController {
      * @throws IOException when fxml file not found.
      */
     @FXML
-    public void button1Handler(ActionEvent event) throws IOException {
+    public void worldSummaryNavigator(ActionEvent event) throws IOException {
         Parent worldSummary = FXMLLoader.load(getClass().getResource("fxml/WorldSummary.fxml"));
         Scene charScene = new Scene(worldSummary);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(charScene);
         window.setResizable(false);
         window.show();
-
     }
 
     /**
@@ -46,7 +45,7 @@ public class MenuController {
      * @throws IOException when fxml file not found.
      */
     @FXML
-    public void button2Handler(ActionEvent event) throws IOException {
+    public void barChartNavigator(ActionEvent event) throws IOException {
         Parent chart = FXMLLoader.load(getClass().getResource("fxml/BarChart.fxml"));
         Scene charScene = new Scene(chart);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -54,5 +53,4 @@ public class MenuController {
         window.setResizable(false);
         window.show();
     }
-
 }

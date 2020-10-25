@@ -197,6 +197,59 @@ public void setAlert(String alertText) {
     }
 ```
 
+## In WorldController.java
+Extract method for duplicate codes
+### Before
+```
+public void cb1Handler() throws Exception {
+        try {
+            GraphData gd = new GraphData();
+            worldDataToday = gd.getWorldData(cb1.getValue(), today);
+            getWorldDataYesterday = gd.getWorldData(cb1.getValue(), yesterday);
+            newCase = String.format("%,d", convertInt(worldDataToday[2]));
+            newDeaths = String.format("%,d", convertInt(worldDataToday[3]));
+            totalCases = String.format("%,d", convertInt(worldDataToday[4]));
+            totalDeaths = String.format("%,d", convertInt(worldDataToday[5]));
+        ...
+
+public void setAll(){
+        t1.setStyle("-fx-fill: forestgreen");
+        t2.setStyle("-fx-fill: forestgreen");
+        t3.setStyle("-fx-fill: forestgreen");
+        t4.setStyle("-fx-fill: forestgreen");
+
+        newCase = String.format("%,d", Integer.parseInt(worldDataToday[2]));
+        newDeaths = String.format("%,d", Integer.parseInt(worldDataToday[3]));
+        totalCases = String.format("%,d", Integer.parseInt(worldDataToday[4]));
+        totalDeaths = String.format("%,d", Integer.parseInt(worldDataToday[5]));
+        ...
+```
+### After
+```
+public static void formatCasesString() {
+        newCase = String.format("%,d", convertInt(worldDataToday[2]));
+        newDeaths = String.format("%,d", convertInt(worldDataToday[3]));
+        totalCases = String.format("%,d", convertInt(worldDataToday[4]));
+        totalDeaths = String.format("%,d", convertInt(worldDataToday[5]));
+    }
+public void cb1Handler() throws Exception {
+        try {
+            GraphData gd = new GraphData();
+            worldDataToday = gd.getWorldData(cb1.getValue(), today);
+            getWorldDataYesterday = gd.getWorldData(cb1.getValue(), yesterday);
+            formatCasesString();
+        ...
+
+public void setAll(){
+        t1.setStyle("-fx-fill: forestgreen");
+        t2.setStyle("-fx-fill: forestgreen");
+        t3.setStyle("-fx-fill: forestgreen");
+        t4.setStyle("-fx-fill: forestgreen");
+
+        formatCasesString();
+        ...
+```
+
 ## For others
 For other classes and methods, The code is quite clear and do its own work well.  
 Especially in controller classes that each method do thier own work well.

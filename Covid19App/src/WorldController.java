@@ -130,6 +130,13 @@ public class WorldController implements Initializable {
         return val;
     }
 
+    public static void formatCasesString() {
+        newCase = String.format("%,d", convertInt(worldDataToday[2]));
+        newDeaths = String.format("%,d", convertInt(worldDataToday[3]));
+        totalCases = String.format("%,d", convertInt(worldDataToday[4]));
+        totalDeaths = String.format("%,d", convertInt(worldDataToday[5]));
+    }
+
     /**
      * Method for set the new value for display in World.fxml.
      * @throws Exception when URL not found.

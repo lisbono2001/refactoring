@@ -14,8 +14,7 @@ public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
-
+}
 ```
 ### After
 
@@ -31,7 +30,7 @@ public void start(Stage primaryStage) throws Exception {
         primaryStage.setResizable(false);
         //show the application.
         primaryStage.show();
-    }
+}
 ```
 
 ## In GraphData.java
@@ -55,7 +54,6 @@ public ArrayList<String> getDate() throws Exception {
             }
             i++;
         }
-
         return date;
     }
 ```
@@ -142,7 +140,7 @@ public static String urlSelector(String type) {
         else return "https://covid.ourworldindata.org/data/ecdc/new_deaths.csv";
     }
 
-    public static int findIndexOfCountry(String line,String country) {
+public static int findIndexOfCountry(String line,String country) {
         int index = 0;
         String[] countryarray = new String[0];
         //if firstline is readable, split countries and contain them in contryarray
@@ -160,7 +158,7 @@ public static String urlSelector(String type) {
         return index;
     }
 
-    public static ArrayList<String> getCountryConfirmCase(String type, String country) throws Exception {
+public static ArrayList<String> getCountryConfirmCase(String type, String country) throws Exception {
         //initial String ArrayList for return
         ArrayList<String> data = new ArrayList<>();
         //get BufferedReader input using urlSelector

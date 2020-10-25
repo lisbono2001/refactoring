@@ -189,6 +189,7 @@ public static ArrayList<String> getCountryConfirmCase(String type, String countr
         return data;
     }
 ```
+## For others
+For other classes and methods, The code is quite clear and do its own work well.  
+Especially in controller classes that each method do thier own work well.
 
-To make it more clear of benefit of this.  
-Look at the [code](https://github.com/lisbono2001/refactoring/blob/master/Covid19App/src/GraphData.java)
